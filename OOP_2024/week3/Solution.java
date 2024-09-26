@@ -8,41 +8,45 @@ public class Solution {
 
     /** getter numerator. */
     public int getNumerator() {
-        return numerator;
+        return this.numerator;
     }
 
     /** getter denominator. */
     public int getDenominator() {
-        return denominator;
+        return this.denominator;
     } 
 
     /** setter numerator. */
-    public void setNumerator(int n) {
-        numerator = n;
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
     }
 
     /** setter denominator. */
-    public void setDenominator(int d) {
-        denominator = d;
+    public void setDenominator(int denominator) {
+        if (denominator == 0) {
+            denominator = 1;
+        }
+        this.denominator = denominator;
     }
 
     /** Contructor. */
-    public Solution(int numerator , int denominator) {
-        if(denominator == 0) {
+    public Solution(int numerator, int denominator) {
+        if (denominator == 0) {
             denominator = 1;
-        };
+        }
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
+    /**
+     * Contructor.
+     */
+    public Solution() {
+        this.denominator = 1;
+    }
+
     /** gcd. */
     public int gcd(int a, int b) {
-        if (a < 0) {
-            a = -a;
-        }
-        if (b < 0) {
-            b = -b;
-        }
         if (b != 0) {
             return gcd(b, a % b);
         } 
@@ -51,9 +55,9 @@ public class Solution {
 
     /** Rut gon phan so. */
     public Solution reduce() {
-        int gcd = gcd(numerator, denominator);
-        numerator /= gcd;
-        denominator /= gcd;
+        int gcd = gcd(this.numerator, this.denominator);
+        this.numerator /= gcd;
+        this.denominator /= gcd;
         return this;
     } 
 
@@ -77,11 +81,7 @@ public class Solution {
         this.denominator = this.denominator * other.denominator;
         return this.reduce();
     }
-    /**
-     * 
-     * @param other
-     * @return
-     */
+
     /** divide. */
     public Solution divide(Solution other) {
         this.numerator = this.numerator * other.denominator;
@@ -90,7 +90,7 @@ public class Solution {
     }
 
     /** equal. */
-    public boolean equal(Object obj) {
+    public boolean equals(Object obj) {
         if (obj instanceof Solution) {
             Solution other = (Solution) obj;
             Solution a = this.reduce();
@@ -102,5 +102,9 @@ public class Solution {
         return false; 
     }
 
+    /**
+     * main.
+     */
+    public static void main(String[] args) {}
 
 }
