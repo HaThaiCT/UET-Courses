@@ -1,0 +1,7 @@
+Tính xác định: 
+Một hàm băm nên luôn luôn cho ra cùng một giá trị băm đối với cùng một đầu vào.
+Điều này đảm bảo tính nhất quán và dễ dàng dự đoán khi lưu trữ hoặc truy xuất dữ liệu, vì cùng một đầu vào sẽ luôn tạo ra cùng một giá trị băm.
+
+Phân phối đồng đều: 
+Một hàm băm tốt nên phân phối các đầu vào một cách đồng đều trong không gian băm để giảm thiểu va chạm, tức là trường hợp hai đầu vào khác nhau tạo ra cùng một giá trị băm.
+Tính chất này giúp việc lưu trữ và truy xuất dữ liệu trở nên hiệu quả hơn.
